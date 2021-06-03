@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +23,8 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
