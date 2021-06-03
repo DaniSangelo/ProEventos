@@ -9,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class EventosComponent implements OnInit {
 
   public eventos: any = [];
+  larguraImg: number = 50;
+  margemImg: number = 2;
+  exibirImagem: boolean = true;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getEventos();
+    this.exibirEsconderImagem();
   }
 
   public getEventos(): any
@@ -22,5 +26,10 @@ export class EventosComponent implements OnInit {
       response => this.eventos = response,
       error => console.log(error)
     );
+  }
+
+  public exibirEsconderImagem(): void
+  {
+    this.exibirImagem = !this.exibirImagem;
   }
 }
