@@ -360,3 +360,4 @@ MigrationBackup/
 *.db
 *.db-shm
 *.db-wal
+testandoControler.json
