@@ -11,12 +11,12 @@ namespace ProEventos.Persistence
         void DeleteRange<T>(T[] entity) where T: class;
         Task<bool> SaveChangesAsync();
 
-        Task<Evento> GetAllEventoByIdAsync(int eventoId, bool includePalestrantes);
-        Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes);
+        Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes);
+        Task<Evento[]> GetEventosByTemaAsync(string tema, bool includePalestrantes);
         Task<Evento[]> GetAllEventosAsync(bool includePalestrantes);
         
-        Task<Palestrante> GetAllPalestranteByIdAsync(int palestranteId, bool includeEventos);
-        Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string nome, bool includeEventos);
-        Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEventos);
+        Task<Palestrante> GetPalestranteByIdAsync(int palestranteId, bool includeEventos);
+        Task<Palestrante[]> GetPalestrantesByNomeAsync(string nome, bool includeEventos);
+        Task<Palestrante[]> GetPalestrantesAsync(bool includeEventos);
     }
 }
