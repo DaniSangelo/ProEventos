@@ -17,6 +17,7 @@
       <th>
         <button type="button" class="btn btn-outline-light btn-sm"
           (click)="exibirEsconderImagem()">
+          <i class="{{exibirImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
           {{exibirImagem ? 'Exibir' : 'Ocultar'}}
         </button>
       </th>
@@ -39,15 +40,19 @@
         [isAnimated]=true
         >
       </td>
-      <td>{{evento.eventoId}}</td>
+      <td>{{evento.id}}</td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
-      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.dataEvento | DateTimeFormat}}</td>
       <td>{{evento.qtdPessoas}}</td>
-      <td>{{evento.lote}}</td>
+      <td>{{evento.lotes[0].nome}}</td>
       <td>
-        <button class="btn btn-primary btn-sm mr-2">Editar</button>
-        <button class="btn btn-danger btn-sm mr-2">Excluir</button>
+        <button class="btn btn-primary btn-sm mr-2" tooltip = "Editar">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger btn-sm mr-2" tooltip = "Excluir">
+          <i class="fa fa-trash"></i>
+        </button>
       </td>
     </tr>
   </tbody>
