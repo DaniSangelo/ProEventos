@@ -50,7 +50,7 @@
         <button class="btn btn-primary btn-sm mr-2" tooltip = "Editar">
           <i class="fa fa-edit"></i>
         </button>
-        <button class="btn btn-danger btn-sm mr-2" tooltip = "Excluir">
+        <button class="btn btn-danger btn-sm mr-2" tooltip = "Excluir" (click)="openModal(template)">
           <i class="fa fa-trash"></i>
         </button>
       </td>
@@ -64,3 +64,10 @@
     </tr>
   </tfoot>
 </table>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want to confirm?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>

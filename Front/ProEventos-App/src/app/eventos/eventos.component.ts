@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Evento } from '../models/Evento';
 import { EventoService } from '../services/evento.service';
 
@@ -9,7 +10,7 @@ import { EventoService } from '../services/evento.service';
   //,providers: [EventoService] --> esta é a segunda maneira de se fazer injeção de dependência
 })
 export class EventosComponent implements OnInit {
-
+  modalRef: BsModalRef | any;
   public eventos: Evento[] = [];
   public eventosFiltrados: Evento[] = [];
 
@@ -37,7 +38,7 @@ export class EventosComponent implements OnInit {
     )
   }
 
-  constructor(private eventoService: EventoService) { }
+  constructor(private eventoService: EventoService, private modalService: BsModalService) { }
 
   public ngOnInit() {
     this.getEventos();
@@ -58,5 +59,17 @@ export class EventosComponent implements OnInit {
   public exibirEsconderImagem(): void
   {
     this.exibirImagem = !this.exibirImagem;
+  }
+
+  openModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+
+  confirm(): void {
+    this.modalRef.hide();
+  }
+
+  decline(): void {
+    this.modalRef.hide();
   }
 }
