@@ -12,6 +12,7 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
+import { TituloComponent } from './shared/Titulo/Titulo.component'
 
 import {TooltipModule } from 'ngx-bootstrap/tooltip'
 import {BsDropdownModule } from 'ngx-bootstrap/dropdown'
@@ -26,7 +27,9 @@ import {NgxSpinnerModule} from 'ngx-spinner'
       EventosComponent,
       PalestrantesComponent,
       NavComponent,
-      DateTimeFormatPipe
+      DateTimeFormatPipe,
+      TituloComponent
+
    ],
   imports: [
     BrowserModule,

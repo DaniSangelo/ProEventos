@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -83,4 +83,6 @@ export class EventosComponent implements OnInit {
   decline(): void {
     this.modalRef.hide();
   }
+
+  currentPage = 'Eventos';
 }

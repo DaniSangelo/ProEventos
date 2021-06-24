@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {TituloComponent} from '../shared/Titulo/Titulo.component'
 @Component({
   selector: 'app-palestrantes',
   templateUrl: './palestrantes.component.html',
@@ -11,5 +11,7 @@ export class PalestrantesComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  currentPage = 'Palestrantes'
 
 }
