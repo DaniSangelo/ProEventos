@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import {TooltipModule } from 'ngx-bootstrap/tooltip'
 import {BsDropdownModule } from 'ngx-bootstrap/dropdown'
 import {ModalModule} from 'ngx-bootstrap/modal'
 import {ToastrModule} from 'ngx-toastr'
+import {NgxSpinnerModule} from 'ngx-spinner'
 
 
 @NgModule({
@@ -42,11 +43,13 @@ import {ToastrModule} from 'ngx-toastr'
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
       progressBar: true
-    })
+    }),
+    NgxSpinnerModule
   ],
   providers: [
     EventoService //--> esta é a terceira maneira de se fazer injeção de dependência
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
