@@ -13,6 +13,6 @@ export class TituloComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input() tituloPagina = 'Aqui deve ser exibido o título da página'
+  @Input() public tituloPagina: string = 'Aqui deve ser exibido o título da página'
 
 }

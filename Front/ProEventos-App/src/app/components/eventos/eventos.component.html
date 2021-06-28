@@ -1,5 +1,4 @@
-<app-titulo [tituloPagina]="currentPage">
-</app-titulo>
+<app-titulo [tituloPagina]="currentPage"></app-titulo>
 <hr>
 <div class="form-inline">
   <div class="form-group mb-2">
@@ -34,7 +33,7 @@
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventosFiltrados">
       <td>
-        <img src="../../assets/img/{{evento.imagemURL}}" alt="foto do evento"
+        <img src="../../../assets/img/{{evento.imagemURL}}" alt="foto do evento"
         [style.width.px]="larguraImg"
         [style.margin.px]="margemImg"
         [collapse]="exibirImagem"

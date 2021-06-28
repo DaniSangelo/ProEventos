@@ -7,8 +7,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
@@ -19,16 +19,22 @@ import {BsDropdownModule } from 'ngx-bootstrap/dropdown'
 import {ModalModule} from 'ngx-bootstrap/modal'
 import {ToastrModule} from 'ngx-toastr'
 import {NgxSpinnerModule} from 'ngx-spinner'
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ContatosComponent } from './components/contatos/contatos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-      EventosComponent,
-      PalestrantesComponent,
-      NavComponent,
-      DateTimeFormatPipe,
-      TituloComponent
+    EventosComponent,
+    PalestrantesComponent,
+    NavComponent,
+    DateTimeFormatPipe,
+    TituloComponent,
+    DashboardComponent,
+    PerfilComponent,
+    ContatosComponent
 
    ],
   imports: [
@@ -50,7 +56,7 @@ import {NgxSpinnerModule} from 'ngx-spinner'
     NgxSpinnerModule
   ],
   providers: [
-    EventoService //--> esta é a terceira maneira de se fazer injeção de dependência
+//    EventoService --> esta é a terceira maneira de se fazer injeção de dependência
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
