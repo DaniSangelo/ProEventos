@@ -14,5 +14,8 @@ export class TituloComponent implements OnInit {
   }
 
   @Input() public tituloPagina: string = 'Aqui deve ser exibido o título da página'
+  @Input() public subtitulo: string = 'Desde 2021';
+  @Input() public iconClass: string = 'fa fa-user';
+  @Input() public botaoListar: boolean = false;
 
 }
