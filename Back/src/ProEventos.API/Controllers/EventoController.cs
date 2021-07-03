@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProEventos.Persistence.Contextos;
-using ProEventos.Domain;
 using ProEventos.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
+using ProEventos.Application.DTO;
 
 namespace ProEventos.API.Controllers
 {
@@ -29,7 +26,7 @@ namespace ProEventos.API.Controllers
                 var eventos = await _eventoService.GetAllEventosAsync(true);
                 if (eventos == null)
                     return NotFound("Nenhum evento encontrado");
-                
+           
                 return Ok(eventos);
             }
             catch (Exception e)
@@ -72,7 +69,7 @@ namespace ProEventos.API.Controllers
             }
         }        
         [HttpPost]
-        public async Task<IActionResult> AddEvento(Evento model)
+        public async Task<IActionResult> AddEvento(EventoDTO model)
         {
             try
             {
@@ -88,7 +85,7 @@ namespace ProEventos.API.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEvento(int id, Evento model)
+        public async Task<IActionResult> UpdateEvento(int id, EventoDTO model)
         {
             try
             {
