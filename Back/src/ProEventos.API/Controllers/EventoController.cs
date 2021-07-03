@@ -15,7 +15,6 @@ namespace ProEventos.API.Controllers
         public EventoController(IEventoService eventoService)
         {
             _eventoService = eventoService;
-
         }
 
         [HttpGet]
@@ -25,7 +24,7 @@ namespace ProEventos.API.Controllers
             {
                 var eventos = await _eventoService.GetAllEventosAsync(true);
                 if (eventos == null)
-                    return NotFound("Nenhum evento encontrado");
+                    return NoContent();
            
                 return Ok(eventos);
             }
@@ -42,7 +41,7 @@ namespace ProEventos.API.Controllers
             {
                 var evento = await _eventoService.GetEventoByIdAsync(id, true);
                 if (evento == null)
-                    return NotFound("Nenhum evento encontrado");
+                    return NoContent();
                 
                 return Ok(evento);
             }
@@ -59,7 +58,7 @@ namespace ProEventos.API.Controllers
             {
                 var eventos = await _eventoService.GetEventosByTemaAsync(tema, true);
                 if (eventos == null)
-                    return NotFound("Nenhum evento encontrado");
+                    return NoContent();
                 
                 return Ok(eventos);
             }
@@ -67,7 +66,8 @@ namespace ProEventos.API.Controllers
             {                
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar recuperar eventos. Erro: {e.Message}");
             }
-        }        
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddEvento(EventoDTO model)
         {
@@ -84,6 +84,7 @@ namespace ProEventos.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar adicionar evento. Erro: {e.Message}");
             }
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEvento(int id, EventoDTO model)
         {
@@ -100,15 +101,13 @@ namespace ProEventos.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar atualizar evento. Erro: {e.Message}");
             }
         }
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvento(int id)
         {
             try
             {
-                if (await _eventoService.DeleteEvento(id))
-                    return Ok("Evento removido com sucesso");
-                
-                return BadRequest("Evento não removido");
+                return await _eventoService.DeleteEvento(id) ? Ok("Evento removido com sucesso") : BadRequest("Evento não removido");
             }
             catch (Exception e)
             {                
